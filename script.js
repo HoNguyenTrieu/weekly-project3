@@ -20,6 +20,12 @@ const putActiveClass = (category) => {
   currentSideMenu = category;
 };
 
+// This function will fetch some random images when the page first is started
+// Therefore, we don't need any query parameter here in the URL
+const getDefaultImages = () => {
+  const response = fetch();
+};
+
 const getURL = (urlOptions) => {
   let url = Object.keys(urlOptions).reduce((url, option) => {
     if (urlOptions[option]) {
@@ -33,6 +39,10 @@ const getURL = (urlOptions) => {
 const getAllData = async () => {
   let url = getURL(urlOptions);
 
+  document.getElementById("card-list").innerHTML = `
+  <div class="spinner-border text-danger" style="width: 3rem; height: 3rem;" role="status">
+  <span class="visually-hidden">Loading...</span>
+  </div>`;
   const response = await fetch(url);
   const data = await response.json();
   console.log(data.hits);
@@ -63,6 +73,7 @@ const handleClickMenu = (category) => {
   putActiveClass(category);
 };
 
+// get image form search
 const handleSearchClick = () => {
   let query = document.getElementById("search-input").value;
   urlOptions.q = query;
