@@ -57,12 +57,12 @@ const renderImage = (newList) => {
     .map((item) => {
       return `
       <div class="col">
-      <div class="card">
+      
       <img src="${item.webformatURL}" class="card-img-top" alt="..." />
-        <div class="card-body">
-        </div>
-        </div>
-    </div>`;
+      <div class="overlay">
+      <div class="text">${item.user}</div>
+      </div>
+      </div>`;
     })
     .join("");
 
