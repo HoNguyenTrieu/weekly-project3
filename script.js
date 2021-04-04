@@ -47,7 +47,7 @@ const getAllData = async () => {
   const data = await response.json();
   console.log(data.hits);
 
-  newList = [...newList, ...data.hits];
+  newList = [...data.hits, ...newList];
 
   renderImage(newList);
 };
@@ -71,6 +71,11 @@ const renderImage = (newList) => {
 
 const handleClickMenu = (category) => {
   putActiveClass(category);
+};
+
+const handleLoadMoreClick = () => {
+  urlOptions.page += 1;
+  getAllData();
 };
 
 // get image form search

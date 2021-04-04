@@ -81,7 +81,7 @@
                 >
               </li>
             </ul>
-            <form class="d-flex">
+            <form class="d-flex" onsubmit="return false">
               <input
                 id="search-input"
                 class="form-control me-2"
@@ -110,6 +110,7 @@
     </main>
     <div class="d-flex justify-content-center p-2">
       <button
+        id="id-checkbox"
         class="btn btn-outline-primary w-25"
         onclick="handleLoadMoreClick()"
       >
