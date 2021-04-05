@@ -66,9 +66,14 @@ const renderImage = (newList) => {
   document.getElementById("card-list").innerHTML = newListHTML;
 };
 
-// change status active when client click.
+// change status active when client click. And will put value to search input
 const handleClickMenu = (category) => {
   putActiveClass(category);
+  console.log(category);
+  let query = category;
+  console.log(query);
+  urlOptions.q = query;
+  getAllData();
 };
 
 // get result by loadmore button
