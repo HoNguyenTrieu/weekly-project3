@@ -20,12 +20,7 @@ const putActiveClass = (category) => {
   currentSideMenu = category;
 };
 
-// This function will fetch some random images when the page first is started
-// Therefore, we don't need any query parameter here in the URL
-const getDefaultImages = () => {
-  const response = fetch();
-};
-
+// this function will make string url
 const getURL = (urlOptions) => {
   let url = Object.keys(urlOptions).reduce((url, option) => {
     if (urlOptions[option]) {
@@ -36,6 +31,7 @@ const getURL = (urlOptions) => {
   return url;
 };
 
+// This function will get data and convert this to json type => So we can use method to work with data json
 const getAllData = async () => {
   let url = getURL(urlOptions);
 
@@ -52,6 +48,7 @@ const getAllData = async () => {
   renderImage(newList);
 };
 
+// function render Image
 const renderImage = (newList) => {
   const newListHTML = newList
     .map((item) => {
@@ -69,10 +66,12 @@ const renderImage = (newList) => {
   document.getElementById("card-list").innerHTML = newListHTML;
 };
 
+// change status active when client click.
 const handleClickMenu = (category) => {
   putActiveClass(category);
 };
 
+// get result by loadmore button
 const handleLoadMoreClick = () => {
   urlOptions.page += 1;
   getAllData();
